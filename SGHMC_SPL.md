@@ -1,4 +1,4 @@
-CLASS SGHMC_SPL(param,N,weight_decay_1=5e-4,weight_decay_0=1e-1,soft_threshold=1e-2,hard_threshold=1e-3,warm_up=3000)
+CLASS SGHMC_SPL(param,N,betas=(0.1,1),weight_decay_1=5e-4,weight_decay_0=1e-1,soft_threshold=1e-2,hard_threshold=1e-3,warm_up=3000)
 
 
 
@@ -9,12 +9,12 @@ CLASS SGHMC_SPL(param,N,weight_decay_1=5e-4,weight_decay_0=1e-1,soft_threshold=1
 * **params** (*iterable*) – iterable of parameters to optimize or dicts defining parameter groups
 * N -training size
 * betas -momentum factor (default: $\beta_{0}=1$,$\beta_{1}$=0.1)
-* weight_decay_1 - small weight decay factor(small L2 penalty)
-* weight_decay_0 - large weight decay factor(large L2 penalty)
+* weight_decay_1 - small weight decay factor(small L2 penalty)(default: weight_decay_1=5e-4)
+* weight_decay_0 - large weight decay factor(large L2 penalty)(default: weight_decay_0=1e-1)
 
-* soft_threshold  -  Threshold for EM algorithm to switch between small and large weight decay factor
-* Hard_threshold - Threshold for pruning
-* warm_up - it warm_up >epoch 
+* soft_threshold  -  Threshold for EM algorithm to switch between small and large weight decay factor(default: soft_threshold=1e-2)
+* Hard_threshold - Threshold for pruning(default: hard_threshold=1e-3)
+* warm_up - If warm_up > epoch, the EM algorithm and pruning will not be activated. (default: warm_up=3000)
 
 
 
